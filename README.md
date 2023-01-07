@@ -6,7 +6,7 @@ This repository contains a script for performing backups of a directory using `r
 
 Before using the scripts, make sure that you have the following installed:
 
-- `rsync`
+- [`Resync`](https://github.com/resync/resync)
 - Python 3
 
 ## Installation
@@ -27,4 +27,7 @@ To install and use the backup script, follow these steps:
 3. When prompted, enter a password for the `resync-backup` user.
 4. The script will create a user named `resync-backup`, a folder named `backups` in the user's home directory, and set the appropriate permissions for the folder.
 
+
+
+For more information to Resync refere to [there Github](https://github.com/resync/resync)
 That's it! The server will now perform backups of the specified directory on a regular basis, and store the backups in the `backups` folder on the receiving end.
