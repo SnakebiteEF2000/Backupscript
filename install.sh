@@ -10,13 +10,19 @@ SCRIPT_PATH=$(dirname "$(readlink -f "$0")")
 # Create path to Python script
 PYTHON_SCRIPT_PATH="$SCRIPT_PATH/python/main.py"
 
+# Create path to ssh script
+SSH_SCRIPT_PATH="$SCRIPT_PATH/install.sh"
+
 # Set interval for cron job to run once per day at 00:00
 interval=1440
 
 # Add Python script to crontab
-crontab -l > temp_cron
-echo "*/$interval * * * * python3 $PYTHON_SCRIPT_PATH" >> temp_cron
-crontab temp_cron
-rm temp_cron
+sudo crontab -l > temp_cron
+sudo echo "*/$interval * * * * python3 $PYTHON_SCRIPT_PATH" >> temp_cron
+sudo crontab temp_cron
+sudo rm temp_cron
 
 echo "Python script has been added to crontab."
+echo "SSH key gen script will run now"
+
+source "$SSH_SCRIPT_PATH"

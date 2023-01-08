@@ -3,10 +3,9 @@ import logging
 import traceback
 import datetime
 
-# Define remote host, username, and password
+# Define remote host, username
 # resync-backup is the standard user created by the client instalation script
 REMOTE_HOST = "resync-backup@remotehost"
-PASSWORD = "password"
 
 # Define path to log file
 LOG_FILE = "/path/to/log/log.log"
@@ -25,10 +24,10 @@ def backup():
     try:
         # Run rsync command with appropriate options
         subprocess.run(
-            ["rsync", "-avz", "--delete", f"--password-file={PASSWORD}", SOURCE_DIR, f"{REMOTE_HOST}:{DEST_DIR}"],
+            ["rsync", "-avz", "--delete", SOURCE_DIR, f"{REMOTE_HOST}:{DEST_DIR}"],
             check=True,
             stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+            stderr=subprocess.PIPE
         )
     except subprocess.CalledProcessError as e:
         # Log error if process fails

@@ -22,3 +22,11 @@ mkdir /home/resync-backup/backups
 # Set permissions for backups folder
 chown resync-backup:resync-backup /home/resync-backup/backups
 chmod 700 /home/resync-backup/backups
+
+# Store path to directory of current script
+SCRIPT_PATH=$(dirname "$(readlink -f "$0")")
+
+# Create path to shh keygen script
+SSH_SCRIPT_PATH="$SCRIPT_PATH/keyexchange.sh"
+
+source "$SSH_SCRIPT_PATH"
