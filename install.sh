@@ -11,7 +11,7 @@ SCRIPT_PATH=$(dirname "$(readlink -f "$0")")
 PYTHON_SCRIPT_PATH="$SCRIPT_PATH/python/main.py"
 
 # Create path to ssh script
-SSH_SCRIPT_PATH="$SCRIPT_PATH/install.sh"
+SSH_SCRIPT_PATH="$SCRIPT_PATH/Client_instalation/keyexchange.sh"
 
 # Set interval for cron job to run once per day at 00:00
 interval=1440
